@@ -1,0 +1,85 @@
+Week 1: C Programming
+
+Beej's Guide to C Programming
+Day 0:
+- compile process: preprocessor -> compiler -> produces an executable for you to run.
+
+Day 1: ch. 1 - 10
+- C orginally didn't have booleans
+- Pre vs Post Increment/Decrement: i++ increments after expression is evaluated; ++i increments before.
+- sizeof: size in bytes of the type of expression
+- do-while: Test happens at the end of the block instead of the beginning.
+- EVERYTHING passed into a function is copied  into its parameter and the function operates on that local copy.
+- Always add void to function parameters. Ex: void function_name(void). void funtion_name() is different, and turns off all the comlpiler type checking!
+- Pass a pointer to a function -> pointer gets copied! Function can now dereference the original variable.
+- For multidimentional arrays, compiler must know all dimensions apart from the 1st dimension.
+- You can initialize strings via a pointer or as an array! char *s = "Hello"; char s[] = "Hello";
+- For struct pointers, you must de-pointer it first to get to the struct itself: (*c).price = new_price; c->price = new_price;
+- Different architectures represent data in memory in different ways! When you write binary data to a stream, serialize it to keep it portable for different achitectures!
+- typedef to make an alias for a type: typedef int antelope; // Make "antelope" an alias for "int"
+
+Day 2: ch. 11 - 16
+- pointers in an array know exactly how many bytes to skip to arrive at the next index: *(p + 1) // prints the value in index 1. 
+- In an array, you can subtract the beginning pointer and end pointer to get the length
+- Array/Pointer Equivalence: a[b] = *(a + b) //because a is simply a pointer to index 0
+- Cannot copy an array normally - must use a loop or memcpy()
+- void* is basically a Generic Type. Ex void *memcpy(void *s1, void *s2, size_t n); //pointer, pointer to destination, number of bytes to copy, works for all data types.
+- void pointers can't dereference. Simply set the void pointer to an actual type: void *p = &a; char *q = p;
+- Clarification: *p refers to the value p points to. p refers to the address stored inside p.
+- Allocation functions return a pointer to the newly-allocated memory: *p = malloc(sizeof(int));
+- These also return NULL if memory cannot be allocated, in which you need error-handling: if ((x = malloc(sizeof(int))*100000)==NULL) {//ERROR HANDLING}
+- free(p) frees the memory that p points to. If many pointers point to it, freeing one is enogugh.
+- char is an int (0-255) and can be used interchangeably
+- const int *p; // Can't modify the actual thing. int *const p; // Can't modify the pointer but can modify the actual thing it points to
+- If you define a variable const, also define all pointers to it const too
+- volatile: imforms a value might change outside of the program: must be checked regularly and should not be optimized. Ex: sensor updates on hardware
+- static in block scope: initialized one time and persists between calls.
+- extern: use variables from a different file
+
+Day 3: ch.17 - 22
+- Never ignore warnings in C; address them all
+- To use functions from a different file, create a headerfile (same_name.h) and stick the prototype in it (Ex: int add(int, int); and #include "same_name.h"
+- Make sure to only #include a headerfile once (Ex. headerfile #includes more headerfiles): There's a solved way to do this.
+- Object file is an in-between file that's not yet an executable. Compiling these are slow but converting to exe is fast, so if you have many files, you can compile them to object first, then to exe. If you modify one of those files, you only have to rebuild that ONE object file.
+- When you run a program, you ask the shell, which asks the OS to make a new process and run it
+- When modifying a string, usually, you shouldn't make it longer than it already is
+- When you run a program, you are running it from another program! (Usually a shell that just runs programs).
+- You can use different error exit statuses and script the shell to make decisions on what to do next!
+- You can access env variable from inside a c program: getenv()
+- Macros: define it and it basically replaces every other place with its name with its corresponding value during preprocessing, before the compiler even sees it
+- If defined (#ifdef, #endif): decides whether to include certain chunk of code depending on if a macros was defined
+- There are built in macros you can use like date, time, file, etc. Macros can also be arguments
+- Padding: some # of bytes your system adds between data, such as fields in a struct. You never know how much padding there is!
+- Order matters a lot in C because it's pretty much the same order that's stored in memory: Ex: Pointer to a struct is the same as pointer to the 1ST element in the struct. Ex: You can compress adjacent bytes together (int a:5; int b:5;) to save memory
+- enums: Basically a struct but for const int values
+
+Day 4: ch.23 - 33
+- You can declare a pointer to the 1st instruction of a function, but you must specify the parameter and return types: float (*p)(int, int);
+- You can all a function, or refer to a function via its pointer
+- Bit operations: NOT, AND, OR, XOR
+- Functions can have variable amount of arguments
+- assert() is used to insist that somehting be true of else the program will exit (catch shooudl-never-happen errors)
+- Goto lets you skip code until the next label. Commonly use to cleanly break out of a loop (break only breaks out of the innermost loop), or to retry smt.
+- Compound literals: create an nameless object on the fly: Ex. int s = sum((int []){1, 2, 3, 4}, 4);
+- Generics in C: You specify the possible type and the complier looks at the argument and matches it with one of the types listed. Happens at compile, NOT runtime
+
+
+Day 5: ch. 34 - 41 DONE!!!
+- Threads: CPU cores running your program in parallel: OS attempts to balance the threads already
+- Either you will need to rejoin a thread, or detach it (no return value but cleans up neatly on its own when complete
+- Thread happen independently so weird behaviour could happen: Ex. in a for loop that passes i as an arg and returns i, a thread can complete and return i before the next thread is called, causes i to be wrong.
+- Atomics: locks the variable when its being re-writen, like a mutex. It also ensures sycronization up to that part of memory
+- Atomics: read-acquire, write-release. Synchronization happens across the acquire/release pair
+- Compiler/c\CPU can rearrange the order of memory reads and writes in a single thread if it follows the as-if rule
+- A BUNCH OF OTHER TECHNICAL STUFF I DIDN'T THINK WAS PARTICULARLY USEFUL PRACTICALLY AND CONCEPTUALLY BUT REFER BACK IF EVER NEEDED!
+
+
+Day 6 and 7: Writing C code
+- An example of a dangling pointer which could never happen in rust (now I too, can appreciate rust):
+ringBuffer *init(int capacity) {
+    ringBuffer buffer = {.buffer_array=malloc(sizeof(int) * capacity), .head_index=0, .tail_index=0, .capacity=capacity, .count=0};
+    ringBuffer *b = &buffer;
+    return b;
+}
+buffer is a local variable that goes out of scope when the function finishes, but I've return a pointer to it! It might appear to work by luck but will likely break unexpectedly.
+- Remember to free() for every malloc()
