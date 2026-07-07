@@ -1,0 +1,27 @@
+#include "stm32f4xx.h"
+
+#define GPIOAEN				(1U<<0)
+#define UART2EN				(1U<<17)
+
+int main(void)
+{
+}
+
+
+void uar2_tx_init(void)
+{
+	/*****************Configure uart gpio pin*****************/
+	// Clock access to gpioa
+	RCC->AHB1ENR |= GPIOAEN;
+
+	// Set PA2 mode to alternate function mode
+
+
+	// Set alternate function type to UART_TX (AF07)
+
+	/*****************Configure uart module*****************/
+	// Clock access to uart2
+	// Configure baudrate
+	// Configure the transfer direction
+	// Enable uart module
+}

@@ -1,4 +1,4 @@
-Week 1: C Programming
+WEEK 1: C PROGRAMMING
 
 Beej's Guide to C Programming
 Day 0:
@@ -83,3 +83,65 @@ ringBuffer *init(int capacity) {
 }
 buffer is a local variable that goes out of scope when the function finishes, but I've return a pointer to it! It might appear to work by luck but will likely break unexpectedly.
 - Remember to free() for every malloc()
+
+
+WEEK 2: STM32
+
+Day 1:
+- APBs (advanced peripheral bus) and AHB (advanced high-performing bus) provide clock access to SP2, I2C, etc. Buses are like roads the data travels on, and some are faster than others
+- Peripherals have addresses and inside them, registers have "sub-addresses"
+- Addresses of peripherals: In your code, set it up as an offset from the starting address of the bus. Same concept for registers (GPIOA_BASE + SOME_R_OFFSET)
+- On registers, you usually have to set certain bit/bits to 1 or 0 depending on the function you want (#define PIN5 (1U<<5))
+- Registers have this format: #define RCC_AHB1EN_R (*(volatile unsigned int *)(RCC_BASE + AHB1EN_R_OFFSET)). RCC_AHB1EN_R is now a dereferenced pointer to that address in memory, so now you can edit it its contents
+- RCC manages which peripherals get clocks, and also resets that reset peripherals to orginal states. Though RCC in this chip lives inside AHB1, it controls the entire chip.
+- 1U<<0 means "The number 1, shifted 0 bits - so ...0001. (1U<<5) means "The number 1, shifted 5 bits - so ...00010 0000 (remember 0 in front of the first bit don't matter but those behind it do matter!)
+- Set 2 bits for the MODE_R to define the mode (input, output, alternate, analog)
+- When finding the offset address, usually refer to _____ register map.
+- All this manual stuff usually gets taken care of in a headerfile
+
+Day 2:
+- All GPIO modules have at least 2 registers: Direction register (set pin as input/output) and data register where data is stored (write to or read from pin)
+- BSRR: BSy sets the corresponding ODRx bit, BRy resets the corresponding ODRx bit
+- if (GPIOC->IDR & BTN_PIN) { The & is a bitwise operator and is different from &&. & compares each bit individually and sees if the resulting value is non-zero
+
+Day 3:
+- UART is part of USART where there is both sychronous and asychronous mode and UART is asychronous
+- duplex: data can be both transmitted and recieved. simplex means it's just one of them (one direction)
+- Unrelated (windows + d) to hide all tabs on OS
+- Sometimes (uart for example), you want to reset all the control bits at the start: USART2->CR1 = CR1_TE; use = instead of |=
+- The RM contains registers, controls, and stuff so look here when you're enabling stuff and changing the 0s and 1s in bits
+- The datasheet contains the structure and wiring of the chip so you usually look here to figure out where pins are
+- For UART: 
+- UART hardware doesn't take "115200" directly — it needs a specific divisor value written into the BRR: BRR value ≈ PeriphCLK / BaudRate
+- Process: set RCC, set GPIOx->MODER, set alternate function type (in this case), configure uart module with RCC, baudrate, transfer direction, and enable uart module 
+
+
+Day 4:
+- On a bare-metal microcontroller, there is no OS. Something like printf has to be told what to do, and thus must be implemented with a handful of low-level functions to work.
+- You can put function declarations in the headerfile 
+- In debug mode (stm32cubeIDE), live expressions can be used to change variables in the code, in real time
+- ADC's bit size determines it's #_of_steps. Reference voltage (or current) divided by #_of_steps is the step size
+
+Day 5:
+Note: Here I try to write the code before following along witht he video
+Process for ADC
+- Locate where it is on block diagram
+- Determine pin (in pin definitions table) for additional functions
+- write pal_adc_init function: GPIO pin: enable clock access, set mode to analog. configure adc module: clock access, configure adc parameters (conversion sequence start, conversion sequence length), enable adc module
+- adc configure with 3 channels: 1st = ch5, 2nd = ch2, 3rd = ch3
+- start_conversion() - a bit in CR2
+- read() same logic as UART read
+Other learnings:
+- The ADC handles a max of 16 channels and you can set the order in which you want the ADC to convert them, and it will do that on its own. Set the chns in SQR1-3 and set the amount/length in SQR1
+Systick:
+- Systick is a core peripheral that's on all ARM microcontrollers, regarless of brand
+- It's a downcounter; counts from a certain value to 0
+- Delay = (1sec/16 million(max value)) * #_of_cycles		(it counts 16mil each second)
+- or: N * (1/SYSCLK) 
+- Polling code: set a load time for each cycle (eg. 1 ms), have a while loop that stalls until cycle finishes, then forloop that for the desired time
+Timers:
+- Timer: internal in CPU. Counter: Extern thing connected to CPU
+- When timer counts up to the value in the auto-reload_register, an interupt occurs and the timer starts back at 0 again
+- Prescaler is basically gear reduction for timers. It divides the timer value before it reaches the counter, making it convenient
+- update_event = timer/((prescaler+1)(period+1))
+-  

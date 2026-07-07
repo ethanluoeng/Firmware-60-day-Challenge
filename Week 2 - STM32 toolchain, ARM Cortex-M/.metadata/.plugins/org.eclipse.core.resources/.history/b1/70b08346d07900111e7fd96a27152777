@@ -1,0 +1,27 @@
+// ADC on APB2
+// For ADC1_1, we use PA1
+
+#define GPIOAEN				(1U<<0)
+#define ADC1EN				(1U<<8)
+
+#include "adc.h"
+
+void pal_adc_init(void)
+{
+	/**********Configure GPIO**********/
+	// Enable clock access to GPIOA
+	RCC->AHB1ENR |= GPIOAEN;
+
+	// Set mode to analog
+	GPIOA->MODER |= (1U<<2);
+	GPIOA->MODER |= (1U<<3);
+
+	/**********Configure ADC module**********/
+	// Enable clock access to ADC
+	RCC->
+
+	// Configure ADC parameters
+
+	// Enable ADC module
+
+}

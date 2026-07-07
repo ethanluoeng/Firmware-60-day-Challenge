@@ -1,0 +1,26 @@
+#include "stm32f4xx.h"
+
+#define GPIOAEN				(1U<<0)
+#define GPIOCEN				(1U<<2) 			// bit in AHB1 that enables GPIOC for PC13
+
+#define PIN5				(1U<<5)
+#define PIN13				(1U<<13)
+
+#define LED_PIN				PIN5
+#define BTN_PIN				PIN13
+
+int main(void)
+{
+	RCC->AHB1ENR |= GPIOAEN | GPIOCEN
+
+	GPIOA->MODER |= (1U<<10);
+	GPIOA->MODER &=~ (1U<<11);
+
+	while(1) {
+		GPIOA->BSRR = LED_PIN; 					// Corresponds to BS5 to set the pin
+		for(int i = 0; i < 100000; i++) {}
+
+		GPIOA->BSRR = (1U<<21);
+		for(int i = 0; i < 100000; i++) {}   	// Corresponds to BR5 to reset the pin
+	}
+}
