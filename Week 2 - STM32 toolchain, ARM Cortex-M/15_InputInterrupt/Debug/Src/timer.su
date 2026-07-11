@@ -1,0 +1,3 @@
+../Src/timer.c:18:6:tim2_1hz_init	4	static
+../Src/timer.c:37:6:tim_pa5_output_compare	4	static
+../Src/timer.c:71:6:tim3_pa6_input_capture	4	static

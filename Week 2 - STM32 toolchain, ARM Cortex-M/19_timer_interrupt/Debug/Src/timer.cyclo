@@ -1,0 +1,3 @@
+C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Src/timer.c:9:6:tim2_1hz_interrupt_init	1
+../Src/timer.c:33:6:tim2_1hz_init	1

@@ -1,0 +1,5 @@
+C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+../Src/adc.c:18:6:pa1_adc_interrupt_init	8	static
+../Src/adc.c:49:6:pal_adc_init	4	static
+../Src/adc.c:76:6:start_conversion	4	static
+../Src/adc.c:86:10:adc_read	4	static

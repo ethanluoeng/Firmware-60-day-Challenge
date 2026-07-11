@@ -144,4 +144,24 @@ Timers:
 - When timer counts up to the value in the auto-reload_register, an interupt occurs and the timer starts back at 0 again
 - Prescaler is basically gear reduction for timers. It divides the timer value before it reaches the counter, making it convenient
 - update_event = timer/((prescaler+1)(period+1))
--  
+
+Day 6:
+- Ouput compare: lets the timer hardware control the pin, without every needing the CPU. This means that you can generate a precise continuous signal (eg. PWM wavefore) while the CPU does other work
+- In my code: Each hardware cycle, timer count is compared with target count in the compare register. When they match (default target is 0), hardware perform a pre-configured action to the output pin
+- The action could be: set pin high, set pin low, do nothing, or toggle
+- Input capture: pin's activity controls what gets written into the counter's associated register (without CPU). input capture lets the timer measure precise timing on a signal it doesn't control.
+- You can choose to capture rising edge, falling edge, or both
+Interrupts: 
+- All things connect to the NVIC which handles interrupts, which then connects to the processor core
+- Interrupts from the processor core are called exceptions
+- GPIO pins are connected to EXTI lines (pin 0 of every port is connected to EXTI0_IRQ, or so forth for all other pins and ports. Thus, PA1 and PB1 cannot both be input interrupt pins because they share the same EXTI line)
+- interrupt states: disabled (default), enabled, pending, active
+- Priorities: Sets which interrupt should execute first, and which interrupt can interrupt which
+
+Day 7:
+- You set interrupts within a module: For example, if you want uart RX to send interrupts, you enable the interrupt peripheral in USART2.
+- Then you enable that modules' interrupt in NVIC - basically just telling the NVIC to expect interrupts from that module. 
+- The whole process is like you telling a mafia worker that they'll be sending messages over to the boss, and then you telling the boss to expect those messages from that worker
+- However, if the interrupt, or exception in this case, is comming from inside the core, then you don't have to report it to NVIC (I'm pretty sure)
+- Tip: When you change parameters of a function, remember to change them in the header file and function declarations!!
+- 
