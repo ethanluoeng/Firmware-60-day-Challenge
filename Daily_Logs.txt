@@ -164,4 +164,9 @@ Day 7:
 - The whole process is like you telling a mafia worker that they'll be sending messages over to the boss, and then you telling the boss to expect those messages from that worker
 - However, if the interrupt, or exception in this case, is comming from inside the core, then you don't have to report it to NVIC (I'm pretty sure)
 - Tip: When you change parameters of a function, remember to change them in the header file and function declarations!!
+
+Day 8: (This week was extended)
+- DMA allows data to be transfered in the background and only interrupts the processor when a whole data block is ready to by processed, resulting in no major impact on system performance
+- DMA transfer: memory to peripheral, peripheral to memory, or memory to another memory
+- DMA can automatically increment source and destination addresses after each transfer (eg. an array)
 - 

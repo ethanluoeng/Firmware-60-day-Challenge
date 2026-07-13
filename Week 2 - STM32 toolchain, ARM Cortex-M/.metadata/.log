@@ -531,3 +531,45 @@ COM3
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-07-11 12:37:38.435
 !MESSAGE Indexed '19_timer_interrupt' (7 sources, 69 headers) in 1.08 sec: 3,452 declarations; 5,979 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+!SESSION 2026-07-13 12:17:58.860 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-07-13 12:18:13.643
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week 2 - STM32 toolchain, ARM Cortex-M\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-13 12:18:27.122
+!MESSAGE System property http.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-13 12:18:27.124
+!MESSAGE System property http.proxyPort is set to 7897 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-13 12:18:27.125
+!MESSAGE System property https.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-13 12:18:27.128
+!MESSAGE System property https.proxyPort is set to 7897 but should not be set.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-07-13 12:18:37.642
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-13 12:18:40.692
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-13 12:18:40.693
+!MESSAGE port: 
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-07-13 12:19:47.444
+!MESSAGE Indexed '20_uart_tx_dma' (4 sources, 61 headers) in 4.6 sec: 2,900 declarations; 4,221 references; 6 unresolved inclusions; 30 syntax errors; 707 unresolved names (9%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-13 13:14:20.689
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-13 13:14:20.691
+!MESSAGE port: COM3

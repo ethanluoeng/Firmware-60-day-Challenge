@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;16_uart_rx_interrupt&apos;" description="Copy Project &apos;16_uart_rx_interrupt&apos;" destination="C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M" element="/16_uart_rx_interrupt" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="20_uart_tx_dma" stamp="1783959582517"/>
+</session>
