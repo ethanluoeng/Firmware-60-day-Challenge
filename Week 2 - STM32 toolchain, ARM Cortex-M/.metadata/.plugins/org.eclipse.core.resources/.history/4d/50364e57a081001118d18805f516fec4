@@ -1,0 +1,13 @@
+/*
+ * adxl345.h
+ *
+ *  Created on: Jul 17, 2026
+ *      Author: ethan
+ */
+
+#ifndef ADXL345_H_
+#define ADXL345_H_
+
+
+
+#endif /* ADXL345_H_ */

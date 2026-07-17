@@ -169,4 +169,21 @@ Day 8: (This week was extended)
 - DMA allows data to be transfered in the background and only interrupts the processor when a whole data block is ready to by processed, resulting in no major impact on system performance
 - DMA transfer: memory to peripheral, peripheral to memory, or memory to another memory
 - DMA can automatically increment source and destination addresses after each transfer (eg. an array)
-- 
+- DMA request mapping table shows every peripheral that has the DMA function and what channel it is
+
+Day 9:
+I2C:
+- Transactions are initiated and completed by the master
+- all msgs have an address frame and data frame
+- data is placed on SDA line when SCL goes low and is sampled when SCL goes high 
+- Open drain mode: pin can only actively pull to ground, instead of both high and low. Any device on the bus can pull the pin low. If no device is pulling it low, the external pullup resistors pull it back high.
+- Rise time refers to how long it takes the electrical signal to transition from a low voltage level up to a high voltage level
+- I2C read: First you have to write a slave address and a memory location TO THE SLAVE to tell it what to do. Once its recieved that and put its data where you specified, you then read it.
+- the ADXL345 sends 16-bit values, but I2C only transfers 8 bits at a time. So each axis's full reading is split across two consecutive bytes. To combine them, shift the high byte left eight, keep the low byte as-is, the use bitwise OR to combine, as both bytes will have 0s on a half.
+SPI:
+- Basically the master and slave swap data.
+- When master wants to send data, it pulls the SS line low. Then both lines start sending data at the same time! The first bit of the data differentiates the MOSI and MISO line (master-out-slave-in and master-in-slave-out).
+- The data gets sent out and recieved in simultaneously like a queue on both ends, one bit at a time, the bits shifting until all data has been exchanged
+- The clock is always constant
+- CPOL: configure data capture/output occurs on the rising/falling edge. (sampling on the first vs second edge)	
+- Always check if the module supports your protocol because I realised too late that the MPU6050 doesn't support SPI!
