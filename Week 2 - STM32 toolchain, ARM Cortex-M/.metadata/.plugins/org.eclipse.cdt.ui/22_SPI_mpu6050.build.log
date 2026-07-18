@@ -1,0 +1,49 @@
+10:37:24 **** Incremental Build of configuration Debug for project 22_SPI_mpu6050 ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/adxl345.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adxl345.d" -MT"Src/adxl345.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/adxl345.o"
+arm-none-eabi-gcc "../Src/spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/spi.d" -MT"Src/spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/spi.o"
+../Src/adxl345.c: In function 'mpu_read':
+../Src/adxl345.c:10:11: error: implicit declaration of function 'cs_enable' [-Wimplicit-function-declaration]
+   10 |           cs_enable();
+      |           ^~~~~~~~~
+../Src/adxl345.c:13:11: error: implicit declaration of function 'spi1_transmit' [-Wimplicit-function-declaration]
+   13 |           spi1_transmit(&address,1);
+      |           ^~~~~~~~~~~~~
+../Src/adxl345.c:16:11: error: implicit declaration of function 'spi1_receive' [-Wimplicit-function-declaration]
+   16 |           spi1_receive(rxdata,6);
+      |           ^~~~~~~~~~~~
+../Src/adxl345.c:19:11: error: implicit declaration of function 'cs_disable' [-Wimplicit-function-declaration]
+   19 |           cs_disable();
+      |           ^~~~~~~~~~
+../Src/adxl345.c: In function 'mpu_init':
+../Src/adxl345.c:31:9: error: implicit declaration of function 'adxl_read_address'; did you mean 'adxl_read_values'? [-Wimplicit-function-declaration]
+   31 |         adxl_read_address(WHO_AM_I);
+      |         ^~~~~~~~~~~~~~~~~
+      |         adxl_read_values
+../Src/adxl345.c:34:9: error: implicit declaration of function 'adxl_write'; did you mean 'adxl_init'? [-Wimplicit-function-declaration]
+   34 |         adxl_write(MPU_ACCEL_CONFIG, MPU_FOUR_G);
+      |         ^~~~~~~~~~
+      |         adxl_init
+make: *** [Src/subdir.mk:37: Src/adxl345.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/spi.c: In function 'spi1_transmit':
+../Src/spi.c:105:37: error: 'SR_TXE' undeclared (first use in this function)
+  105 |                 while(!(SPI1->SR & (SR_TXE))){}
+      |                                     ^~~~~~
+../Src/spi.c:105:37: note: each undeclared identifier is reported only once for each function it appears in
+../Src/spi.c:115:28: error: 'SR_BSY' undeclared (first use in this function)
+  115 |         while((SPI1->SR & (SR_BSY))){}
+      |                            ^~~~~~
+../Src/spi.c:100:17: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  100 |         uint8_t temp;
+      |                 ^~~~
+../Src/spi.c: In function 'spi1_receive':
+../Src/spi.c:131:37: error: 'SR_RXNE' undeclared (first use in this function); did you mean 'SPI_SR_RXNE'?
+  131 |                 while(!(SPI1->SR & (SR_RXNE))){}
+      |                                     ^~~~~~~
+      |                                     SPI_SR_RXNE
+make: *** [Src/subdir.mk:37: Src/spi.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+10:37:25 Build Failed. 12 errors, 1 warnings. (took 629ms)
+

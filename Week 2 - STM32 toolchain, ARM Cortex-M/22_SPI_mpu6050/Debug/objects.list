@@ -1,6 +1,7 @@
 "./Src/adxl345.o"
 "./Src/i2c.o"
 "./Src/main.o"
+"./Src/spi.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Src/uart.o"

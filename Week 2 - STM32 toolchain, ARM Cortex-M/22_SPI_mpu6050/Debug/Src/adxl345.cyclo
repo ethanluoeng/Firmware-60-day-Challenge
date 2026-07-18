@@ -1,5 +1,0 @@
-../Src/adxl345.c:9:6:adxl_read_address	1
-../Src/adxl345.c:15:6:adxl_write	1
-../Src/adxl345.c:23:6:adxl_read_values	1
-../Src/adxl345.c:31:6:mpu_init	1
-../Src/adxl345.c:49:6:adxl_init	1
