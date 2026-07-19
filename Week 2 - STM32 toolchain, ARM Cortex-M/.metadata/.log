@@ -674,3 +674,34 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-18 10:36:32.253
 !MESSAGE port: 
+!SESSION 2026-07-19 05:45:30.009 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-07-19 05:45:45.296
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week 2 - STM32 toolchain, ARM Cortex-M\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-19 05:45:58.752
+!MESSAGE System property http.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-19 05:45:58.754
+!MESSAGE System property http.proxyPort is set to 7897 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-19 05:45:58.756
+!MESSAGE System property https.proxyHost is set to 127.0.0.1 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2026-07-19 05:45:58.757
+!MESSAGE System property https.proxyPort is set to 7897 but should not be set.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-07-19 05:46:09.517
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-19 05:46:11.902
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-19 05:46:11.903
+!MESSAGE port: 

@@ -1,0 +1,35 @@
+
+// Make is a build automation tool. It reads the makefile (generated when you build) which contains rules on the dependencies of your project, and follows these instructions to turn your source files into an executable (.elf)
+make -j16 all 
+
+// Each turns a source file into an object file
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/ethan/Documents/Firmware-60-day-Challenge/Week 2 - STM32 toolchain, ARM Cortex-M/F4_chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+
+// Hardware instruction flags (tells GCC what hardware is being used):
+	// -mcpu=cortex-m4 									target CPU core
+	// -mfpu=fpv4-sp-d16 and -mfloat-abi=hard — 		this chip has a single-precision hardware FPU, use it and always pass floats in FPU registers (not emulated in software)
+	// -mthumb 											use the compact Thumb instruction set 
+// Debug/optimization flags:
+	// -g3 												select the degubbing level, g3 being the highest with local variables, line number tables, macros definitions. THe extra data is not flashed onto the chip.
+	// -00												no optimization
+// Include flags: 										Tells GCC where to find header files.
+// Code layout flags:
+	//-ffunction-sections -fdata-sections				each function/variable gets its own linker section. This lets linker throw away anything unused later
+// Dependency tracking flags:							generate a .d file listing all headers main.c depends on. If you edit a header, make will know to recompile main.o
+
+// Link command
+arm-none-eabi-gcc -o "3_gpio_bsrr.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week 2 - STM32 toolchain, ARM Cortex-M\3_gpio_bsrr\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3_gpio_bsrr.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+// .Id file 											This is the linker script. It defines your memory map so that linker knows exactly where to place everything, and the .elf matches your chip's memory
+// -Wl,--gc-sections									Linker drops functions/variables that never get called/referenced
+
+Finished building target: 3_gpio_bsrr.elf
+ 
+// These just tell you info
+arm-none-eabi-size  3_gpio_bsrr.elf 
+arm-none-eabi-objdump -h -S 3_gpio_bsrr.elf  > "3_gpio_bsrr.list"
+   text	   data	    bss	    dec	    hex	filename
+    816	      0	   1568	   2384	    950	3_gpio_bsrr.elf
+Finished building: default.size.stdout
