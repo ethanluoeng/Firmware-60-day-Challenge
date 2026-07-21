@@ -207,3 +207,11 @@ Question: if you add a large initialized global array, which numbers in arm-none
 Answer: Data and text grows. It consumes both flash and RAM because the initialized global array must survive across powercycles, while being writable during runtime. To achieve this, it's stored in flash to be permenant and copied over to RAM every startup.
 Bonus: An uninitialized array would only grow bss because it's just zeroed memory that Reset_Handler clears at boot.
 
+Day 11:
+- To use commands in terminal like arm-none-eabi-size, the folder the commands are in must be added to path
+- When refering to a file in terminal, it's the path from where you are. .elf files for example are in the Debug folder so if you type the file from the project root, it will not find it
+- Serial Wire Debug (SWD): The small section of the nucleo board is its own STM32 firmware. It targets the F446 by SWDIO (data) and SWCLK (clock). This gives it power to halt the core, read/write any memory address, set hardware breakpoints, and program flash. And the f446 firmware has no idea it's being watched. SWD works below your software.
+- After the .elf file has been built, the bits have to get on the chip. This is done with GDB and a translator process like OpenOCD which talk over TCP socket on some port like port 3333.
+- The GDB remote serial protocol sends abstract commands (like read memory at X), OpenOCD takes translate these commands for usb packets for the ST-link which turns them into SWD electrical signals that interrogates the chip
+- The IDE just bundles these together and excecutes the GDB commands
+-  

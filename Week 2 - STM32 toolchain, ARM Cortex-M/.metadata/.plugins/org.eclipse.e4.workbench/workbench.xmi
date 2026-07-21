@@ -68,8 +68,9 @@
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.stackanalyzer.stackanalyzer.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.cyclomaticcomplexity.view</tags>
           <tags>persp.viewSC:com.st.stm32cube.ide.mcu.sfrview</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_I3A7InXuEfGoPpwBF1cC8A" selectedElement="_I3A7J3XuEfGoPpwBF1cC8A" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_I3A7InXuEfGoPpwBF1cC8A" selectedElement="_I3A7I3XuEfGoPpwBF1cC8A" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_I3A7I3XuEfGoPpwBF1cC8A" elementId="topLeft" containerData="1855" selectedElement="_I3A7JHXuEfGoPpwBF1cC8A">
+              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_I3A7JHXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_I2vOUHXuEfGoPpwBF1cC8A" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:General</tags>
@@ -101,9 +102,8 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_I3A7LnXuEfGoPpwBF1cC8A" containerData="4150" selectedElement="_I3A7L3XuEfGoPpwBF1cC8A" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_I3A7LnXuEfGoPpwBF1cC8A" containerData="4150" selectedElement="_I3A7NHXuEfGoPpwBF1cC8A" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_I3A7L3XuEfGoPpwBF1cC8A" elementId="bottom" containerData="6731" selectedElement="_I3A7MnXuEfGoPpwBF1cC8A">
-                  <tags>active</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_I3A7MHXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.views.ProblemView" ref="_I2yRoHXuEfGoPpwBF1cC8A" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:General</tags>
@@ -410,6 +410,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.cdt.ui.cview.groupincludes=&quot;false&quot; org.eclipse.cdt.ui.cview.groupmacros=&quot;false&quot; org.eclipse.cdt.ui.editor.CUChildren=&quot;true&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_JFh4QHXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -458,8 +460,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_Jm3DsHXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -731,7 +731,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpYu0HXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_m5YjEINWEfG6kpkO58NIaQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_IHuzonXuEfGoPpwBF1cC8A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zvabkIUdEfG6a_xkHbLDLw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.svg" tooltip="Print" command="_IHuzonXuEfGoPpwBF1cC8A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpYu0XXuEfGoPpwBF1cC8A" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -739,8 +739,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpYu03XuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_m5a_UINWEfG6kpkO58NIaQ" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_IHuzkHXuEfGoPpwBF1cC8A"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_m5cNcINWEfG6kpkO58NIaQ" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_IHxPknXuEfGoPpwBF1cC8A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zvfUEIUdEfG6a_xkHbLDLw" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.svg" tooltip="Undo" enabled="false" command="_IHuzkHXuEfGoPpwBF1cC8A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zvgiMIUdEfG6a_xkHbLDLw" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.svg" tooltip="Redo" enabled="false" command="_IHxPknXuEfGoPpwBF1cC8A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpZ88HXuEfGoPpwBF1cC8A" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -764,7 +764,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpZ89HXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_m5cNdoNWEfG6kpkO58NIaQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" enabled="false" type="Check" command="_IHuzRXXuEfGoPpwBF1cC8A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zvhwUoUdEfG6a_xkHbLDLw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.svg" tooltip="Pin Editor" enabled="false" type="Check" command="_IHuzRXXuEfGoPpwBF1cC8A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IpZ89XXuEfGoPpwBF1cC8A" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2330,7 +2330,7 @@
   <addons xmi:id="_IGhSZnXuEfGoPpwBF1cC8A" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_IGhSZ3XuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_IG8JEHXuEfGoPpwBF1cC8A" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_mTluYYNWEfG6kpkO58NIaQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_IHh-8HXuEfGoPpwBF1cC8A" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_IHh-8XXuEfGoPpwBF1cC8A" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
