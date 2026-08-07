@@ -214,4 +214,13 @@ Day 11:
 - After the .elf file has been built, the bits have to get on the chip. This is done with GDB and a translator process like OpenOCD which talk over TCP socket on some port like port 3333.
 - The GDB remote serial protocol sends abstract commands (like read memory at X), OpenOCD takes translate these commands for usb packets for the ST-link which turns them into SWD electrical signals that interrogates the chip
 - The IDE just bundles these together and excecutes the GDB commands
+
+Day 12:
+- A makefile is not a script that runs, it's a dependency graph so that make knows what to rebuild and what to skip
+- The structure of a single rule of the makefile:
+target: Prerequisites
+	recipe
+- Essentially the target is the file you want to build, prerequisits are the files it depends on, and below that are the shell commands that build the target
+- When not using the IDE, your project header files like stm32f4xx.h that is part of the CMSIS/HAL headers that CubeIDE manages for you automatically, no longer works. You have to manually write in your Makerfile where to find them and add them via -I (include)
+- What is the difference between .elf and .bin? .bin is just straight up code that gets flashed into the chip. .elf has additional sections that aren't for runner the chip, but help tools like debugger. These are similar to index, headers, footnotes in a book that helps navigate it. .elf is read by GDB
 -  
