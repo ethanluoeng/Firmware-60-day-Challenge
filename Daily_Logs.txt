@@ -223,4 +223,11 @@ target: Prerequisites
 - Essentially the target is the file you want to build, prerequisits are the files it depends on, and below that are the shell commands that build the target
 - When not using the IDE, your project header files like stm32f4xx.h that is part of the CMSIS/HAL headers that CubeIDE manages for you automatically, no longer works. You have to manually write in your Makerfile where to find them and add them via -I (include)
 - What is the difference between .elf and .bin? .bin is just straight up code that gets flashed into the chip. .elf has additional sections that aren't for runner the chip, but help tools like debugger. These are similar to index, headers, footnotes in a book that helps navigate it. .elf is read by GDB
--  
+
+
+Week 3:
+
+Day 1:
+- Workflow: Generate project in cubeMX to configure chip. And then code on cubeIDE
+- Use SWV views to debug - streams data, performance statistics, and log messages from the chip to your computer
+- Each comparator is used for a view, you can select the "thing" to monitor (variable, memory address, etc.), read/write permission, and basically monitor something on the chip
