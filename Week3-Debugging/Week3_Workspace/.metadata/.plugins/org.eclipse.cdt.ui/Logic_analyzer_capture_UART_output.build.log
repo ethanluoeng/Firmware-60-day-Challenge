@@ -1,0 +1,10 @@
+19:23:32 **** Incremental Build of configuration Debug for project Logic_analyzer_capture_UART_output ****
+make -j16 all 
+arm-none-eabi-size  Logic_analyzer_capture_UART_output.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9772	     20	   1644	  11436	   2cac	Logic_analyzer_capture_UART_output.elf
+Finished building: default.size.stdout
+ 
+
+19:23:33 Build Finished. 0 errors, 0 warnings. (took 689ms)
+

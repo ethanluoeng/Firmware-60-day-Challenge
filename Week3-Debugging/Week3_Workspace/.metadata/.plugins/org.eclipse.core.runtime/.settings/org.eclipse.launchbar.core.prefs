@@ -1,7 +1,11 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:printf_debug_trace Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:printf_debug_trace Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Logic_analyzer_capture_UART_output Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PA2_PA3_debugging Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Logic_analyser_usart3_capture Debug
 eclipse.preferences.version=1
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:printf_debug_trace\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Logic_analyser_usart3_capture\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Logic_analyzer_capture_UART_output\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Logic_analyzer_capture_UART_output\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PA2_PA3_debugging\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:printf_debug_trace\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:printf_debug_trace\ Debug/activeLaunchTarget=null\:---

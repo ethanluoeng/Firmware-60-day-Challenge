@@ -659,3 +659,214 @@ org.eclipse.core.runtime.AssertionFailedException: assertion failed: The applica
 	 at org.eclipse.ui.console.IOConsoleInputStream.read(IOConsoleInputStream.java:113)
 	 at org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob.run(GdbBasicCliConsole.java:248)
 	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2026-08-14 12:24:52.294 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer_capture_UART_output\STM32CubeIDE\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer_capture_UART_output\STM32CubeIDE\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-14 12:25:20.153
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-14 12:25:39.559
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-14 12:25:45.958
+!MESSAGE Indexed 'Logic_analyzer_capture_UART_output' (23 sources, 81 headers) in 5.87 sec: 4,741 declarations; 25,319 references; 4 unresolved inclusions; 67 syntax errors; 1,081 unresolved names (3.5%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:25:47.341
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:25:47.343
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:26:40.330
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:26:40.346
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-08-14 12:26:54.375
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 180000000; div: 90
+!SESSION 2026-08-14 12:29:32.146 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-14 12:29:47.723
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-14 12:30:02.084
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:30:05.679
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:30:05.680
+!MESSAGE port: COM3
+!SESSION 2026-08-14 12:31:16.210 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer_capture_UART_output\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer_capture_UART_output\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-14 12:31:35.211
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-14 12:31:44.399
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:31:53.048
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:31:53.051
+!MESSAGE port: COM3
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-14 12:31:54.501
+!MESSAGE Indexed 'Logic_analyzer_capture_UART_output' (22 sources, 145 headers) in 9.53 sec: 13,252 declarations; 51,157 references; 5 unresolved inclusions; 125 syntax errors; 1,191 unresolved names (1.8%)
+!SESSION 2026-08-14 12:35:42.256 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyzer\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-14 12:35:55.897
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-14 12:36:08.620
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:36:15.079
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 12:36:15.081
+!MESSAGE port: COM3
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-14 12:36:18.621
+!MESSAGE Indexed 'Logic_analyzer' (22 sources, 147 headers) in 9.35 sec: 13,249 declarations; 51,264 references; 5 unresolved inclusions; 125 syntax errors; 1,190 unresolved names (1.8%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 16:49:29.185
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 16:49:29.187
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 16:53:52.419
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 16:53:52.420
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:21:53.249
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:21:53.253
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:22:23.927
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:22:23.928
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:22:29.073
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:22:29.075
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:23:54.879
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-14 19:23:54.880
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 00:25:34.137
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 00:25:34.137
+!MESSAGE port: 
+!SESSION 2026-08-15 11:12:19.501 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\PA2_PA3_debugging\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\PA2_PA3_debugging\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-15 11:12:39.950
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-15 11:12:58.473
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-15 11:13:08.755
+!MESSAGE Indexed 'PA2_PA3_debugging' (21 sources, 142 headers) in 9.54 sec: 12,289 declarations; 44,616 references; 5 unresolved inclusions; 125 syntax errors; 1,144 unresolved names (2%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 11:13:14.828
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 11:13:14.829
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 11:22:14.497
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 11:22:14.498
+!MESSAGE port: COM3
+!SESSION 2026-08-15 18:41:48.210 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyser_usart3_capture\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\Logic_analyser_usart3_capture\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-15 18:42:03.019
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-15 18:42:15.824
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-15 18:42:25.434
+!MESSAGE Indexed 'Logic_analyser_usart3_capture' (22 sources, 145 headers) in 8.94 sec: 13,254 declarations; 51,244 references; 5 unresolved inclusions; 125 syntax errors; 1,191 unresolved names (1.8%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 18:42:26.085
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-15 18:42:26.087
+!MESSAGE port: COM3

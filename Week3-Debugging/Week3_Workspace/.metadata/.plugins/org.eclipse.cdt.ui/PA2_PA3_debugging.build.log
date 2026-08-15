@@ -1,0 +1,10 @@
+12:19:36 **** Incremental Build of configuration Debug for project PA2_PA3_debugging ****
+make -j16 all 
+arm-none-eabi-size  PA2_PA3_debugging.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7340	     20	   1572	   8932	   22e4	PA2_PA3_debugging.elf
+Finished building: default.size.stdout
+ 
+
+12:19:37 Build Finished. 0 errors, 0 warnings. (took 693ms)
+

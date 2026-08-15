@@ -231,3 +231,20 @@ Day 1:
 - Workflow: Generate project in cubeMX to configure chip. And then code on cubeIDE
 - Use SWV views to debug - streams data, performance statistics, and log messages from the chip to your computer
 - Each comparator is used for a view, you can select the "thing" to monitor (variable, memory address, etc.), read/write permission, and basically monitor something on the chip
+
+Day 2:
+- I SPENT A WHOLE DAY TRYING TO FIGURE OUT WHY THE LOGIC ANALYSER DIDN'T RECEIVE ANY SIGNAL FROM PA2 AND PA3. TURNS OUT, THOSE PINS ARE RESERVED FOR THE ST-LINK USART DEBUGGER. LESSON LEARNED:
+- When you get a new mcu, on the first day, you should check:
+- The resources that must be allocated for "The minimum working system" (to startup, to flashed, and to execute code) For example, the UART DEBUGGING PINS)
+- The mpu's resources (flash, RAM, etc to know the size of your system)
+- The functions of all io perpherals (gnereal, uart, i2c, CAN, interrupts etc)
+- The different ways to flash it (usb isn't the only one)
+notes for the ST-link debugger:
+- "Step over" and "Step into" allow you to execute one line of code at a time and observe its behaviour 
+- Step over: executes the line
+- Step into: Zooms in onto code being run "behind" that line. For example, if the line is calling a function, stepping into it would allow you to execute each line of that function one at a time.
+- Adding a breakpoint simply allows you to run the all code up until that line.
+
+Day 3:
+
+

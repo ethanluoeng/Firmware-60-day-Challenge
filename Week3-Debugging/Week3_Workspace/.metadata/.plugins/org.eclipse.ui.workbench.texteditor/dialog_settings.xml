@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="false"/>
+		<list key="findhistory">
+			<item value="5"/>
+			<item value="2"/>
+			<item value="gpioa"/>
+			<item value="dela"/>
+			<item value="delay"/>
+			<item value="gpio"/>
+			<item value="led2"/>
+			<item value="Led_TypeDef"/>
+			<item value="LED"/>
+			<item value="HAL_MAX_DELAY"/>
+			<item value="led"/>
+			<item value="function"/>
+			<item value="huart2"/>
+			<item value="UART_HandleTypeDef"/>
+		</list>
+	</section>
+</section>

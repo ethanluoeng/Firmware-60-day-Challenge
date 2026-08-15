@@ -1,0 +1,10 @@
+19:54:03 **** Incremental Build of configuration Debug for project Logic_analyser_usart3_capture ****
+make -j16 all 
+arm-none-eabi-size  Logic_analyser_usart3_capture.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9884	     20	   1644	  11548	   2d1c	Logic_analyser_usart3_capture.elf
+Finished building: default.size.stdout
+ 
+
+19:54:04 Build Finished. 0 errors, 0 warnings. (took 1s.188ms)
+
