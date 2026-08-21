@@ -1,4 +1,4 @@
-# UART Command-Line Interface (STM32 Nucleo, interrupt-driven)
+# UART Command-Line Interface
 
 A serial command interpreter for an STM32 Nucleo board. Send plain-text
 commands over UART (via the ST-Link virtual COM port) and the MCU parses
