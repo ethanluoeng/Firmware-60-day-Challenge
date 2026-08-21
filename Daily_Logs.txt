@@ -225,7 +225,7 @@ target: Prerequisites
 - What is the difference between .elf and .bin? .bin is just straight up code that gets flashed into the chip. .elf has additional sections that aren't for runner the chip, but help tools like debugger. These are similar to index, headers, footnotes in a book that helps navigate it. .elf is read by GDB
 
 
-Week 3:
+Week 3: Debugging
 
 Day 1:
 - Workflow: Generate project in cubeMX to configure chip. And then code on cubeIDE
@@ -246,5 +246,12 @@ notes for the ST-link debugger:
 - Adding a breakpoint simply allows you to run the all code up until that line.
 
 Day 3:
+- In UART, if the data is corrupt, it's usually due to baudrate, or incorrectly setting the size of the rx/tx data.
+- Common embedded convention: no dynamic allocation at all. In this case, the struct and its backing array are statically declared (either globally, or as a local in main that you take the address of)
+- The ring buffer's job in this case is to hold a queue of raw bites as they arrive. They will later get processed into a string.
+- When you have a hardware peripheral (HAL) and a software data structure (your ring buffer) that need to interact, it is usually cleanest to separate then via a global variable or something. Don't inject the HAL data straight into your data structure.
+- Remember: while loops check the condition after every iteration, so if you've got a function as the condition it'll run the function again - very convenient!
+- Remember: The variable name of an array is already the address to the 1st spot in the array. Adding the '&' sign gives an address of the whole array, which turns out to be a weird address.
+- 
 
 

@@ -1,0 +1,21 @@
+
+
+#ifndef RINGBUFFER_H_
+#define RINGBUFFER_H_
+#include <stdint.h>
+
+// Define structure of the ring buffer struct
+typedef struct {
+    int *buffer_array;
+    volatile int head_index;
+    volatile int tail_index;
+    int capacity;
+} ringBuffer;
+
+rb_init(ringBuffer *buffer, int *buffer_array, int capacity);
+int rb_is_full(ringBuffer *buffer);
+int rb_is_empty(ringBuffer *buffer);
+int rb_write(ringBuffer *buffer, int data);
+int rb_read(ringBuffer *buffer, int *out_data);
+
+#endif /* RINGBUFFER_H_ */

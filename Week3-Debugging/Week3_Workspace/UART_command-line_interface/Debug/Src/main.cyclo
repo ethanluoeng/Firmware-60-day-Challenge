@@ -1,0 +1,7 @@
+../Src/main.c:81:5:main	6
+../Src/main.c:162:6:SystemClock_Config	3
+../Src/main.c:209:13:MX_USART2_UART_Init	2
+../Src/main.c:242:13:MX_GPIO_Init	1
+../Src/main.c:260:6:HAL_UART_RxCpltCallback	1
+../Src/main.c:268:6:String_Parse_Compare	10
+../Src/main.c:308:6:Error_Handler	1

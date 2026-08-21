@@ -1,0 +1,51 @@
+
+// OPERATIONS
+
+// Initializes the ring buffer
+
+void rb_init(ringBuffer *buffer, int capacity) {
+    buffer->head_index=0;
+    buffer->tail_index=0;
+    buffer->capacity=capacity;
+}
+
+// Check is it full
+int rb_is_full(ringBuffer *buffer) {
+    if ((buffer->head_index + 1) % buffer->capacity == buffer->tail_index) {
+        return 1;
+    }
+    return 0;
+}
+
+// Check is it empty
+int rb_is_empty(ringBuffer *buffer) {
+    if (buffer->head_index == buffer->tail_index) {
+        return 1;
+    }
+    return 0;
+}
+
+// Write a value into the buffer
+void rb_write(ringBuffer *buffer, int data)
+{
+    // If full, it give an error
+    if (is_full(buffer)) {
+        return 0;
+    } else {
+        buffer->buffer_array[buffer->head_index] = data;
+        buffer->head_index = (buffer->head_index + 1) % buffer->capacity;
+        return 1;
+    }
+}
+
+// Read a value from the buffer
+int rb_read(ringBuffer *buffer, int *out_data)
+{
+    if (is_empty(buffer)) {
+        return 0; // failure
+    }
+    *out_data = buffer->buffer_array[buffer->tail_index];
+    buffer->tail_index = (buffer->tail_index + 1) % buffer->capacity;
+    return 1; // success;
+}
+
