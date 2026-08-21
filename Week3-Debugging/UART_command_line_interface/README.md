@@ -83,8 +83,8 @@ Core/
 Captured PA6 (Nucleo CN10 pin 13) with a logic analyzer at
 1 MHz sample rate, after sending `pwm 10` and `pwm 80` over the terminal.
 
-```
-![PulseView PWM capture](/PWM_10_to_80_percent_readings.png)
-```
+![PulseView PWM capture](PWM_10_to_80_percent_readings.png)
 
+That is all folks...  
+```\_(ツ)_/```
 
