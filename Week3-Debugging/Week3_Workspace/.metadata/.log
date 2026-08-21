@@ -979,3 +979,27 @@ COM3
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-21 00:04:24.854
 !MESSAGE port: COM3
+!SESSION 2026-08-21 00:42:10.893 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\UART_command-line_interface\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\UART_command-line_interface\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-08-21 00:42:26.664
+!MESSAGE Log4j2 initialized with config file C:\Users\ethan\Documents\Firmware-60-day-Challenge\Week3-Debugging\Week3_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-08-21 00:42:41.838
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-21 00:42:43.410
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-21 00:42:43.414
+!MESSAGE port: COM3
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-21 00:42:52.151
+!MESSAGE Indexed 'UART_command-line_interface' (24 sources, 122 headers) in 9.81 sec: 13,310 declarations; 68,304 references; 1 unresolved inclusions; 92 syntax errors; 238 unresolved names (0.29%)

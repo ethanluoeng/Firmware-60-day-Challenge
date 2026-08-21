@@ -252,6 +252,8 @@ Day 3:
 - When you have a hardware peripheral (HAL) and a software data structure (your ring buffer) that need to interact, it is usually cleanest to separate then via a global variable or something. Don't inject the HAL data straight into your data structure.
 - Remember: while loops check the condition after every iteration, so if you've got a function as the condition it'll run the function again - very convenient!
 - Remember: The variable name of an array is already the address to the 1st spot in the array. Adding the '&' sign gives an address of the whole array, which turns out to be a weird address.
-- 
+- When using cubeMX files, ONLY edit in-between comments that say "USER CODE". If you change something in cubeMX, when it regenerates code, it will regenerate everything outside of the USER CODE sections.
+- There is almost always a HAL MACRO for parameters like "delay", "chanel_number", etc. Rarely should you hardcode something here.
+
 
 

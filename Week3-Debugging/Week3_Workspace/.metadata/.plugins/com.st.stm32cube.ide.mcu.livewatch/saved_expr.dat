@@ -1,1 +1,7 @@
 count
+rx_byte
+test_reads
+rb_storage
+rb.buffer_array[0]
+rb.buffer_array[20]
+rb.buffer_array[50]

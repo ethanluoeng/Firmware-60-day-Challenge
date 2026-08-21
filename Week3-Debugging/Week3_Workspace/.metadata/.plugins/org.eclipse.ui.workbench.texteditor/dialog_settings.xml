@@ -3,6 +3,11 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="rb_read"/>
+			<item value="int"/>
+			<item value="capa"/>
+			<item value="buffer_ca"/>
+			<item value="print"/>
 			<item value="huart"/>
 			<item value="5"/>
 			<item value="2"/>
@@ -13,11 +18,6 @@
 			<item value="led2"/>
 			<item value="Led_TypeDef"/>
 			<item value="LED"/>
-			<item value="HAL_MAX_DELAY"/>
-			<item value="led"/>
-			<item value="function"/>
-			<item value="huart2"/>
-			<item value="UART_HandleTypeDef"/>
 		</list>
 	</section>
 </section>
