@@ -3,6 +3,8 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="false"/>
 		<list key="findhistory">
+			<item value="htim3"/>
+			<item value="pwm"/>
 			<item value="rb_read"/>
 			<item value="int"/>
 			<item value="capa"/>
@@ -16,8 +18,6 @@
 			<item value="delay"/>
 			<item value="gpio"/>
 			<item value="led2"/>
-			<item value="Led_TypeDef"/>
-			<item value="LED"/>
 		</list>
 	</section>
 </section>

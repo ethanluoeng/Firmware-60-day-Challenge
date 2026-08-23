@@ -256,4 +256,34 @@ Day 3:
 - There is almost always a HAL MACRO for parameters like "delay", "chanel_number", etc. Rarely should you hardcode something here.
 
 
+**Skipping weeks 4 and 5 because I am really bored with bare-metal programming...
+
+
+Week 6: FreeRTOS
+
+Day 1: "Mastering the FreeRTOS Real Time Kernel"
+Chapter 2:
+- Each supported combination of compiler and processor is called a FreeRTOS port.
+- FreeRTOS is a bunch of C source files, some universal, some specific to a port. Building them inside your project makes the FreeRTOS API available for your application.
+- FreeRTOSConfig.h contains defined constants that configure the kernel. Include this file in the application but separated from the FreeRTOS source code.
+- task.c and list.c are always required, along with other optional source files depending on what your application needs
+- For port specific sources files, you must build the files located in: FreeRTOS/Source/portable/[compiler]/[architecture] directory.
+- To use dynamic memory allocation, you must include heap implementation src files
+- FreeRTOS requires 3 paths in the comiler's include path: FreeRTOS/Source/include, FreeRTOS/Source/portable/[compiler]/[architecture], path to FreeRTOSConfig.h header file.
+- User src files must include FreeRTOS.h, followed by header file that contains the prototype of the API function used
+- To create a new application from an exisiting demo project: 1. make sure demo works properly, 2. rm src files that implement demo tasks (located in Demo/Common), 3.  Delete all the function calls within main(), except prvSetupHardware() and vTaskStartScheduler(), 4. verify project still builds.
+- tick interrupt: periodic interrupt that FreeRTOS configures
+- tick count: # of ticks that have occurred. Used as measure of time
+- tick period: time between two tick interrupts
+- TickType_t: the data type used to hold tick count value. Can be unsigned 16, 32, 64 bit type.
+- Variable and function naming rules that you must know
+Building a Demo project:
+- ARM_CM4F is the exact same as ARM_CM3 except for the extra FPU. If not using FPU, just use ARM_CM3. If using ARM_CM4F, FPU must be enabled.
+- 
+
+Day 2:
+Chapter 3:
+- heap fragmentation: heap has enough free memory but not in a usable contiguous block
+- 
+
 
