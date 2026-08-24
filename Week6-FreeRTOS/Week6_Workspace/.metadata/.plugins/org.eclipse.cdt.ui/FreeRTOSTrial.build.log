@@ -1,0 +1,10 @@
+01:56:14 **** Incremental Build of configuration Debug for project FreeRTOSTrial ****
+make -j16 all 
+arm-none-eabi-size  FreeRTOSTrial.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25648	    116	  20828	  46592	   b600	FreeRTOSTrial.elf
+Finished building: default.size.stdout
+ 
+
+01:56:15 Build Finished. 0 errors, 0 warnings. (took 1s.40ms)
+

@@ -282,8 +282,23 @@ Building a Demo project:
 - 
 
 Day 2:
+STM32CubeMX FreeRTOS setup:
+- SYS: Trace Asynchronous Sw, TIM6 (FreeRTOS uses systick so HAL will need to use another time source.
+- Middleware: FreeRTOS, CMSIS V2
+In essence: tasks are kind of like interrupt handlers. You code what you want the task to do inside the task function, then the scheduler will automatically run the tasks based on their priority.
+- osThreadTerminate(); - API function that deletes a task from the scheduler. 
 Chapter 3:
 - heap fragmentation: heap has enough free memory but not in a usable contiguous block
+- treats memory allocation as part of the portable layer instead of core codebase due to different embedded systems specs
+- Heap_1: Simplest. Tasks are only created before starting the scheduler so allocation scheme is easy
+- Heap_2: best-fit algorithm uses the free block of memory that is closest in size to the number of bytes requested.
+- Heap_3: uses standard library malloc() and free() by making them thread-safe (suspends scheduler during their executions). 
+- Heap_4: first-fit algorithm will use the first block of memory that fits. adjacent blocks of free memory will also be combined into a single block.
+- Heap_5: Same as Heap_4, but can combine separate memory spaces into a single heap. (Read about the implemetation more if you need to use it)
+- There are a bunch of heap api functions to get info on the heap (# of free bytes, etc)
+- You can enable static memory allocation if you want the extra safety
+
+Day 3:
 - 
 
 
