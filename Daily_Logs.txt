@@ -262,7 +262,7 @@ Day 3:
 Week 6: FreeRTOS
 
 Day 1: "Mastering the FreeRTOS Real Time Kernel"
-Chapter 2:
+Chapter 2: FreeRTOS Kernel distribution
 - Each supported combination of compiler and processor is called a FreeRTOS port.
 - FreeRTOS is a bunch of C source files, some universal, some specific to a port. Building them inside your project makes the FreeRTOS API available for your application.
 - FreeRTOSConfig.h contains defined constants that configure the kernel. Include this file in the application but separated from the FreeRTOS source code.
@@ -287,7 +287,7 @@ STM32CubeMX FreeRTOS setup:
 - Middleware: FreeRTOS, CMSIS V2
 In essence: tasks are kind of like interrupt handlers. You code what you want the task to do inside the task function, then the scheduler will automatically run the tasks based on their priority.
 - osThreadTerminate(); - API function that deletes a task from the scheduler. 
-Chapter 3:
+Chapter 3: Heap Memory Management
 - heap fragmentation: heap has enough free memory but not in a usable contiguous block
 - treats memory allocation as part of the portable layer instead of core codebase due to different embedded systems specs
 - Heap_1: Simplest. Tasks are only created before starting the scheduler so allocation scheme is easy
@@ -299,6 +299,12 @@ Chapter 3:
 - You can enable static memory allocation if you want the extra safety
 
 Day 3:
+Chapter 4: Task Management
+- Tasks are C functions.
+- Each task is its own small program, it has entry point, run forever in a for loop, and does not exit.
+- It must not be allowed to return from the function that implements it in any way. Cannot contain a 'return' statement. If a task is no longer required, it should be deleted
+- The FreeRTOS scheduler is the only entity that can switch a task in and out of the Running state
+- Just like functions, you can create different instances of a task using a single task definition. Basically, you give xTaskCreate() the same task function pointer (which points to a task function), but different parameters to create different instances of that task.
+- The "tick interrupt" executes at the end of each time slice to select the next task to run. The frequency of the tick interrupt (usually 100hz) is thus the length of each time slice. The end of a time slice is not the only place that the scheduler can select a new task, such as when higher priority task enters the Ready state.
 - 
-
 
