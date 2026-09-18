@@ -22,12 +22,16 @@ Firmware-60-day-Challenge/
 Daily_Logs is where I kept track of everything new I had learned.
 
 ### Week 1 - C
+Worked through Beej's Guide to C, covering pointers, memory management, structs, bitfields, macros, multithreading, and atomics. Wrote example code that surfaced classic pitfalls like dangling pointers, building a stronger intuition for how C manages memory under the hood.
 
 ### Week 2 - STM32 Toolchain, ARM Cortex-M
+Learned bare-metal register-level programming on an STM32 Nucleo board, covering GPIO, UART, ADC, timers, interrupts, DMA, I2C, and SPI by writing to peripheral registers directly instead of using HAL. Also dug into the toolchain itself, studying the compile/link process, linker scripts, the Reset_Handler, SWD debugging, and writing a Makefile from scratch.
 
 ### Week 3 - Debugging
+Practiced debugging workflows using STM32CubeIDE and SWV views, and learned a hard lesson about checking a new MCU's reserved pins after losing a day chasing a logic analyzer issue caused by pins reserved for the ST-Link debugger. Built a UART command-line interface using a statically allocated ring buffer, reinforcing embedded conventions around avoiding dynamic allocation.
 
 ### Week 6 - FreeRTOS
+Studied FreeRTOS fundamentals from "Mastering the FreeRTOS Real Time Kernel," including kernel ports, configuration files, tick interrupts, and the different heap memory management schemes (Heap_1 through Heap_5). Set up FreeRTOS in STM32CubeMX and learned task management concepts, including how tasks are structured, created, and scheduled.
 
 ## Tools & Hardware
 Refer to page 2 of embedded_2month_plan.pdf
