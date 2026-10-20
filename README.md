@@ -5,7 +5,9 @@ I followed an AI-generated, 60-day embedded systems roadmap for ~2 hours a day: 
 - **Hardware:** STM32 Nucleo-F446RE, MPU-6050 IMU Breakout, logic analyzer, multimeter
 - **Biggest lesson:** Always check which pins a dev board reserves before you debug them (see [Bug I hunted](#bug-i-hunted-the-reserved-pins))
  
-![Bench setup: Nucleo-F446RE, logic analyzer, and multimeter with STM32CubeMX open](stm32_bench_setup.JPG)
+<p align="center">
+  <img src="stm32_bench_setup.JPG" alt="Bench setup: Nucleo-F446RE, logic analyzer, and multimeter with STM32CubeMX open" width="700">
+</p>
 
 ## Repository Structure
 
@@ -23,13 +25,16 @@ Firmware-60-day-Challenge/
 ## Weekly Breakdown
 
 ### Daily Logs
-[Daily Logs](Daily_Logs.txt) is where I kept track of everything new I learned each day. A few highlights:
-- **Week 1, Day 6-7:** Caught myself returning a pointer to a stack-allocated struct from `init()`, a dangling pointer that "works by luck" until the stack frame gets reused.
-- **Week 2, Day 10:** An initialized global array grows both `.text` and `.data` because its initial values live in flash and `Reset_Handler` copies them into RAM at boot, while an uninitialized one only grows `.bss`.
-- **Week 2, Day 11:** Debugging is a chain: GDB sends remote-protocol commands over TCP to OpenOCD, which turns them into USB packets for the ST-LINK, which drives SWD to halt and inspect the F446 without the firmware ever knowing.
+[Daily Logs](Daily_Logs.txt) is where I kept track of everything new I learned each day. 
 
 ### Week 1 - C
 Worked through Beej's Guide to C, covering pointers, memory management, structs, bitfields, macros, and multithreading. Wrote example code that surfaced classic pitfalls like dangling pointers, building a stronger intuition for how C manages memory under the hood.
+
+| Topic | Code in repo | Notes |
+|---|---|---|
+| Dynamic memory | [✅ linked_list](Week1-C/linked_list.c) | Singly linked list with `malloc`'d nodes, search, delete via a `node **` to handle removing the head, and a `free_list` that NULLs the head afterward to avoid a dangling pointer. |
+| Data structures | [✅ ring_buffer](Week1-C/ring_buffer.c) | Fixed-capacity circular buffer with modulo head/tail wraparound that overwrites the oldest value when full, plus `assert`-based unit tests for init, empty reads, full, and overwrite cases. |
+| State machines | [✅ struct_based_FSM](Week1-C/struct_based_FSM.c) | Table-driven vending machine FSM where each `transition` struct maps a state/input pair to a next state and an action function pointer. |
 
 ### Week 2 - STM32 Toolchain, ARM Cortex-M
 Learned bare-metal register-level programming on an STM32 Nucleo board, covering GPIO, UART, ADC, timers, interrupts, DMA, I2C, and SPI by writing to peripheral registers directly instead of using HAL. Also dug into the toolchain itself, studying the compile/link process, linker scripts, the Reset_Handler, SWD debugging, and writing a Makefile from scratch.
@@ -48,7 +53,9 @@ Learned bare-metal register-level programming on an STM32 Nucleo board, covering
 ### Week 3 - Debugging
 Practiced debugging workflows using STM32CubeIDE and SWV views, and learned a hard lesson about checking a new MCU's reserved pins after losing a day chasing a logic analyzer issue caused by pins reserved for the ST-Link debugger. Built a UART command-line interface using a statically allocated ring buffer, reinforcing embedded conventions around avoiding dynamic allocation.
 
-<img src="Week3-Debugging/USART3_output_capture_with_decoder.png" width="500">
+<img src="Week3-Debugging/USART3_output_capture_with_decoder.png" description="decoding uart signal with logic analyser" width="500">
+
+*USART3 TX (PB10) captured on the logic analyzer, with PulseView's UART decoder translating the waveform into readable bytes.*
  
 #### Bug I hunted: the reserved pins
 - **Symptom:** The logic analyzer received no signal at all from PA2 and PA3.
