@@ -5,7 +5,7 @@ I followed an AI-generated, 60-day embedded systems roadmap for ~2 hours a day: 
 - **Hardware:** STM32 Nucleo-F446RE, MPU-6050 IMU Breakout, logic analyzer, multimeter
 - **Biggest lesson:** Always check which pins a dev board reserves before you debug them (see [Bug I hunted](#bug-i-hunted-the-reserved-pins))
  
-![TODO: photo of your bench setup](images/TODO-setup.jpg)
+![Bench setup: Nucleo-F446RE, logic analyzer, and multimeter with STM32CubeMX open](stm32_bench_setup.JPG)
 
 ## Repository Structure
 
@@ -24,9 +24,9 @@ Firmware-60-day-Challenge/
 
 ### Daily Logs
 [Daily Logs](Daily_Logs.txt) is where I kept track of everything new I learned each day. A few highlights:
-- **Day [TODO]:** [TODO: one-line highlight]
-- **Day [TODO]:** [TODO: one-line highlight]
-- **Day [TODO]:** [TODO: one-line highlight]
+- **Week 1, Day 6-7:** Caught myself returning a pointer to a stack-allocated struct from `init()`, a dangling pointer that "works by luck" until the stack frame gets reused.
+- **Week 2, Day 10:** An initialized global array grows both `.text` and `.data` because its initial values live in flash and `Reset_Handler` copies them into RAM at boot, while an uninitialized one only grows `.bss`.
+- **Week 2, Day 11:** Debugging is a chain: GDB sends remote-protocol commands over TCP to OpenOCD, which turns them into USB packets for the ST-LINK, which drives SWD to halt and inspect the F446 without the firmware ever knowing.
 
 ### Week 1 - C
 Worked through Beej's Guide to C, covering pointers, memory management, structs, bitfields, macros, and multithreading. Wrote example code that surfaced classic pitfalls like dangling pointers, building a stronger intuition for how C manages memory under the hood.
@@ -36,14 +36,14 @@ Learned bare-metal register-level programming on an STM32 Nucleo board, covering
 
 | Peripheral | Code in repo | Notes |
 |---|---|---|
-| GPIO | [TODO: ✅/❌](Week2-STM32-Toolchain/TODO) | [TODO] |
-| UART | [TODO] | [TODO] |
-| ADC | [TODO] | [TODO] |
-| Timers | [TODO] | [TODO] |
-| Interrupts | [TODO] | [TODO] |
-| DMA | [TODO] | [TODO] |
-| I2C | [TODO] | [TODO] |
-| SPI | [TODO] | [TODO] |
+| GPIO | [✅ 4_gpio_input](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/4_gpio_input/Src/main.c) | Reads the PC13 user button through `IDR` and drives the PA5 LED with atomic `BSRR` set/reset writes. |
+| UART | [✅ 16_uart_rx_interrupt](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/16_uart_rx_interrupt/Src/uart.c) | Full USART2 TX/RX driver with a rounded `BRR` baud calculation, `printf` retargeting, and an RXNE interrupt that toggles the LED on `'1'`. |
+| ADC | [✅ 10_adc_continous_conversion](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/10_adc_continous_conversion/Src/adc.c) | Configures ADC1 channel 1 on PA1 through `SQR1`/`SQR3` and runs it in continuous-conversion mode, polling `EOC` for each result. |
+| Timers | [✅ 14_InputCapture](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/14_InputCapture/Src/timer.c) | TIM2 output compare toggles PA5 at 1 Hz in hardware, and TIM3 input capture on PA6 (jumpered to PA5) timestamps each edge in milliseconds. |
+| Interrupts | [✅ 15_InputInterrupt](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/15_InputInterrupt/Src/exti.c) | Routes PC13 to EXTI13 via `SYSCFG`, unmasks a falling-edge trigger, enables it in the NVIC, and clears the pending bit in the handler. |
+| DMA | [✅ 20_uart_tx_dma](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/20_uart_tx_dma/Src/uart.c) | DMA1 Stream 6 / Channel 4 streams a string from memory into `USART2->DR` with no CPU involvement, and a transfer-complete interrupt lights the LED. |
+| I2C | [✅ 21_I2C_adxl345](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/21_I2C_adxl345/Src/i2c.c) | Register-level I2C1 driver on open-drain PB8/PB9 that burst-reads the MPU-6050's six accelerometer bytes and combines them into signed 16-bit axes. |
+| SPI | [✅ 22_SPI_mpu6050](Week%202%20-%20STM32%20toolchain,%20ARM%20Cortex-M/22_SPI_mpu6050/Src/spi.c) | SPI1 master driver (mode 3, MSB-first, software chip select on PA9) that compiles but was never run on hardware, because the MPU-6050 turned out not to support SPI. |
 
 ### Week 3 - Debugging
 Practiced debugging workflows using STM32CubeIDE and SWV views, and learned a hard lesson about checking a new MCU's reserved pins after losing a day chasing a logic analyzer issue caused by pins reserved for the ST-Link debugger. Built a UART command-line interface using a statically allocated ring buffer, reinforcing embedded conventions around avoiding dynamic allocation.
@@ -51,10 +51,10 @@ Practiced debugging workflows using STM32CubeIDE and SWV views, and learned a ha
 <img src="Week3-Debugging/USART3_output_capture_with_decoder.png" width="500">
  
 #### Bug I hunted: the reserved pins
-- **Symptom:** [TODO: what the logic analyzer showed, or didn't]
-- **What I tried:** [TODO: wrong leads you chased]
-- **Root cause:** Pins [TODO: e.g. PA13/PA14 or PA2/PA3] are reserved on the Nucleo for the onboard ST-Link debugger, so [TODO: what that did to your signal].
-- **Fix:** [TODO]
+- **Symptom:** The logic analyzer received no signal at all from PA2 and PA3.
+- **What I tried:** I stripped the firmware down to a bare HAL project that just drove PA2/PA3 as plain GPIO outputs (toggling them, then forcing them high) to rule out my UART configuration, and still saw nothing.
+- **Root cause:** Pins PA2/PA3 are reserved on the Nucleo for the onboard ST-Link debugger, so USART2 TX/RX were routed to the ST-Link's virtual COM port instead of out to the header where my analyzer was connected.
+- **Fix:** I moved my test signals to free pins (PA4/PA6) to confirm the analyzer worked, then switched the UART capture to USART3 (TX on PB10, RX on PC5), which produced the decoded capture above.
 - **Lesson:** Read the board's user manual and schematic for reserved and solder-bridged pins *before* wiring anything up. This cost me a full day.
 
 ### Week 4 - FreeRTOS
