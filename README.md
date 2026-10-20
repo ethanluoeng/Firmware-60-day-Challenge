@@ -3,6 +3,7 @@
 I followed an AI-generated, 60-day embedded systems roadmap for ~2 hours a day: bare-metal STM32, ARM Cortex-M, debugging, and FreeRTOS. Then I used those skills to build my next project: a [**Dog Communication Device**](https://github.com/ethanluoeng/Dog_Communication_Device).
 - **Time invested:** ~100 hours over 60 days
 - **Hardware:** STM32 Nucleo-F446RE, MPU-6050 IMU Breakout, logic analyzer, multimeter
+- **Software:** STM32CubeIDE v2.2.0, STM32CubeMX, arm-none-eabi-gcc, PulseView, Realterm
 - **Biggest lesson:** Always check which pins a dev board reserves before you debug them (see [Bug I hunted](#bug-i-hunted-the-reserved-pins))
  
 <p align="center">
@@ -21,11 +22,10 @@ Firmware-60-day-Challenge/
 ├── Daily_Logs.txt
 └── embedded_2month_plan.pdf
 ```
+- [Daily Logs](Daily_Logs.txt) is where I kept track of everything new I learned each day. 
+- The full plan, including the original shopping list, is in [embedded_2month_plan.pdf](embedded_2month_plan.pdf).
 
 ## Weekly Breakdown
-
-### Daily Logs
-[Daily Logs](Daily_Logs.txt) is where I kept track of everything new I learned each day. 
 
 ### Week 1 - C
 Worked through Beej's Guide to C, covering pointers, memory management, structs, bitfields, macros, and multithreading. Wrote example code that surfaced classic pitfalls like dangling pointers, building a stronger intuition for how C manages memory under the hood.
@@ -56,31 +56,17 @@ Practiced debugging workflows using STM32CubeIDE and SWV views, and learned a ha
 <img src="Week3-Debugging/USART3_output_capture_with_decoder.png" description="decoding uart signal with logic analyser" width="500">
 
 *USART3 TX (PB10) captured on the logic analyzer, with PulseView's UART decoder translating the waveform into readable bytes.*
- 
-#### Bug I hunted: the reserved pins
+
+### Week 4 - FreeRTOS
+Studied FreeRTOS fundamentals from "Mastering the FreeRTOS Real Time Kernel," including kernel ports, configuration files, tick interrupts, and the different heap memory management schemes (Heap_1 through Heap_5). Set up FreeRTOS in STM32CubeMX and learned task management concepts, including how tasks are structured, created, and scheduled.
+
+### Example of a bug I hunted: the reserved pins
 - **Symptom:** The logic analyzer received no signal at all from PA2 and PA3.
 - **What I tried:** I stripped the firmware down to a bare HAL project that just drove PA2/PA3 as plain GPIO outputs (toggling them, then forcing them high) to rule out my UART configuration, and still saw nothing.
 - **Root cause:** Pins PA2/PA3 are reserved on the Nucleo for the onboard ST-Link debugger, so USART2 TX/RX were routed to the ST-Link's virtual COM port instead of out to the header where my analyzer was connected.
 - **Fix:** I moved my test signals to free pins (PA4/PA6) to confirm the analyzer worked, then switched the UART capture to USART3 (TX on PB10, RX on PC5), which produced the decoded capture above.
 - **Lesson:** Read the board's user manual and schematic for reserved and solder-bridged pins *before* wiring anything up. This cost me a full day.
-
-### Week 4 - FreeRTOS
-Studied FreeRTOS fundamentals from "Mastering the FreeRTOS Real Time Kernel," including kernel ports, configuration files, tick interrupts, and the different heap memory management schemes (Heap_1 through Heap_5). Set up FreeRTOS in STM32CubeMX and learned task management concepts, including how tasks are structured, created, and scheduled.
-
-## Tools & Hardware
  
-| Item | Purpose | Approx. price |
-|---|---|---|
-| STM32 Nucleo-F446RE | Main development board for bare-metal and FreeRTOS work | ~$20 |
-| Logic analyzer | Capturing and decoding UART/I2C/SPI signals | ~$15 |
-| Multimeter | Continuity, voltage, and current checks | ~$50 |
-| MPU-6050 IMU Breakout | Provides real-time raw measurements | ~$10 |
-
- 
-**Software:** STM32CubeIDE v2.2.0, STM32CubeMX, arm-none-eabi-gcc, PulseView, Realterm
- 
-The full plan, including the original shopping list, is in [embedded_2month_plan.pdf](embedded_2month_plan.pdf).
-
 ## AI Documentation
 
 ### Prompts Used to Create the 60-Day Plan
